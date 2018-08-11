@@ -3,8 +3,8 @@ new Phaser.Game({
 	height:360, 
 	type:Phaser.AUTO,
 	physics: {
-		default: 'arcade',
-		arcade: {
+		default: 'matter',
+		matter: {
 			gravity: {
 				y: 300
 			},
