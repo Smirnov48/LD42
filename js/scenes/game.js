@@ -5,11 +5,11 @@ class Game extends Phaser.Scene {
 	}
 
 	preload() {
-
+		this.load.image('block', 'assets/block.png')
 	}
 
 	create () {
-		this.add.text(80, 110, 'The game', { font: '96px Arial', fill: '#FF00FF' });	
+		this.add.image(100, 100, 'block');
 	}
 
 }
