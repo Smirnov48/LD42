@@ -1,0 +1,3 @@
+Dafault colors plate:
+#ff00ff
+#800080
