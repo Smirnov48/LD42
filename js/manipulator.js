@@ -1,6 +1,7 @@
 class Manipulator {
 
-	constructor(game) {
+	constructor(game, blockPool) {
+		this.blockPool = blockPool;
 		this.game = game;
 
 		this.manipulator = game.add.image(32, 0, 'manipulator');
@@ -24,8 +25,13 @@ class Manipulator {
 			this.velocity = -this.velocity;
 		}
 
-		if (this.needReleaseBlock && this.manipulator.x % 32 == 0) {
-			new Block(this.game, this.manipulator.x, this.manipulator.y + 16);
+		if (
+			this.needReleaseBlock && 
+			this.manipulator.x % 32 == 0 &&
+			this.manipulator.x > 0 &&
+			this.manipulator.x < 640
+		){
+			this.blockPool.createBlock(this.manipulator.x, this.manipulator.y + 16);
 			this.needReleaseBlock = false;
 		}
 	}
