@@ -18,6 +18,15 @@ class Block {
 		}
 	}
 
+	setPosition(x, y) {
+		this.block.x = x;
+		this.block.y = y;
+	}
+
+	setPool(blocksPool) {
+		this.blocksPool = blocksPool;
+	} 
+
 	isCollide(otherBlock) {
 		let a = this.block;
 		let b = otherBlock.block;

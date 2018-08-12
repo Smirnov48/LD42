@@ -16,6 +16,11 @@ class BlockPool {
 		}
 	}
 
+	add(block) {
+		block.setPool(this);
+		this.blocks.push(block);
+	}
+
 	getCollideObject (currentBlock) {
 		for (let block of this.blocks) {
 			if (block != currentBlock) {
