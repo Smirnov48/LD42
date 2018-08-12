@@ -3,7 +3,7 @@ class Block {
 	constructor(game, x, y, blockPool) {
 		this.blockPool = blockPool;
 		this.game = game;
-		this.block = game.add.image(x, y, 'block');
+		this.block = game.add.image(x, y, 'block', Math.floor(Math.random() * 5) );
 	}
 
 	update (time, delta) {

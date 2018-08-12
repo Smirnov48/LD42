@@ -37,7 +37,7 @@ class Player {
 		} 		
 
 		if (collideObject) {
-			this.sprite.y = collideObject.y - 16;
+			this.sprite.setVelocityY(-10);
 		}
 
 		if (

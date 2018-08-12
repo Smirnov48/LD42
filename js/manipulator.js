@@ -6,6 +6,7 @@ class Manipulator {
 
 		this.manipulator = game.add.image(32, 0, 'manipulator');
 		this.manipulator.setOrigin(0.5, 0);
+		this.manipulator.depth = 200;
 
 		this.curTime = 2000 + Math.random() * 5000;
 
@@ -35,14 +36,14 @@ class Manipulator {
 			this.manipulator.x % 32 == 0 && 
 			Math.floor(this.manipulator.x / 32) == this.whereDrop
 		) {
-			this.catchedBlock.setPosition(this.manipulator.x, this.manipulator.y + 24);
+			this.catchedBlock.setPosition(this.manipulator.x, this.manipulator.y + 32);
 			this.blockPool.add(this.catchedBlock);
 			this.catchedBlock = false;
 			this.whereDrop = null
 		}
 
 		if (this.catchedBlock) {
-			this.catchedBlock.setPosition(this.manipulator.x, this.manipulator.y + 24);
+			this.catchedBlock.setPosition(this.manipulator.x, this.manipulator.y + 32);
 		}
 	}
 

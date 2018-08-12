@@ -5,7 +5,7 @@ class Game extends Phaser.Scene {
 	}
 
 	preload() {
-		this.load.image('block', 'assets/block.png');
+		this.load.spritesheet('block', 'assets/block.png', { frameWidth: 32, frameHeight: 32});
 		this.load.spritesheet('player', 'assets/player.png',  { frameWidth: 32, frameHeight: 65});
 		this.load.spritesheet('playerIdle', 'assets/playerIdle.png',  { frameWidth: 32, frameHeight: 64});
 		this.load.image('manipulator', 'assets/manipulator.png');
@@ -14,22 +14,21 @@ class Game extends Phaser.Scene {
 
 	create () {
 
-
-	this.anims.create({
-		key: 'run',
-		frames: this.anims.generateFrameNumbers('player', { start:0, end: 5}),
-		frameRate: 6,
-		repeat: -1
-	});
-
+		this.anims.create({
+			key: 'run',
+			frames: this.anims.generateFrameNumbers('player', { start:0, end: 5}),
+			frameRate: 6,
+			repeat: -1
+		});
 
 
-	this.anims.create({
-		key: 'idle',
-		frames: this.anims.generateFrameNumbers('playerIdle', { start:0, end: 1}),
-		frameRate: 6,
-		repeat: -1
-	});
+
+		this.anims.create({
+			key: 'idle',
+			frames: this.anims.generateFrameNumbers('playerIdle', { start:0, end: 1}),
+			frameRate: 6,
+			repeat: -1
+		});
 
 
 		this.cameras.main.setBounds(0, 0, 640, 360);

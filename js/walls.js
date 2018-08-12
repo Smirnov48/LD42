@@ -1,10 +1,8 @@
 class Walls {
 
 	constructor(game) {
-		//var player = game.physics.add.image(100, 100, 'player').setCollideWorldBounds(true);
+		let background = game.add.tileSprite(0, 0, 640, 360, "wall");
+		background.setOrigin(0, 0);
 	}
-
-//	create (game) {
-//	}
 
 }
