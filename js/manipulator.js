@@ -17,7 +17,7 @@ class Manipulator {
 		if (time > this.curTime) {
 			this.curTime = time + 2000 + Math.random() * 5000;
 
-			let block = new Block(this.game, this.manipulator.x, this.manipulator.y + 16);
+			new Block(this.game, this.manipulator.x, this.manipulator.y + 16);
 		}
 
 
