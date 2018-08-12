@@ -6,7 +6,7 @@ class Game extends Phaser.Scene {
 
 	preload() {
 		this.load.image('block', 'assets/block.png');
-		this.load.spritesheet('player', 'assets/player.png',  { frameWidth: 32, frameHeight: 64});
+		this.load.spritesheet('player', 'assets/player.png',  { frameWidth: 32, frameHeight: 65});
 		this.load.spritesheet('playerIdle', 'assets/playerIdle.png',  { frameWidth: 32, frameHeight: 64});
 		this.load.image('manipulator', 'assets/manipulator.png');
 		this.load.image('wall', 'assets/wall.png');
