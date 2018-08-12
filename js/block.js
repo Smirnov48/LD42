@@ -1,9 +1,9 @@
 class Block {
 
-	constructor(game, x, y, blockPool) {
+	constructor(game, x, y, blockPool, player) {
 		this.blockPool = blockPool;
 		this.game = game;
-		this.block = game.add.image(x, y, 'block', Math.floor(Math.random() * 5) );
+		this.block = game.physics.add.staticImage(x, y, 'block', Math.floor(Math.random() * 5) );
 	}
 
 	update (time, delta) {
@@ -16,6 +16,7 @@ class Block {
 				this.block.y = 344;
 			}
 		}
+		this.block.refreshBody();
 	}
 
 	setPosition(x, y) {

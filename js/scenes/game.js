@@ -32,7 +32,7 @@ class Game extends Phaser.Scene {
 
 
 		this.cameras.main.setBounds(0, 0, 640, 360);
-		this.physics.world.setBounds(0, 0, 640, 360);
+		this.physics.world.setBounds(-300, 0, 1240, 360);
 
 		this.walls = new Walls(this);
 

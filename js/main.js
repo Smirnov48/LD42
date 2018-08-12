@@ -8,7 +8,7 @@ new Phaser.Game({
 			gravity: {
 				y: 300
 			},
-			debug: false
+			debug: true
 		}
 	},
 	backgroundColor:0xD0D0D0,
