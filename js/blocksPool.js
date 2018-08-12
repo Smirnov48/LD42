@@ -18,10 +18,13 @@ class BlockPool {
 
 	getCollideObject (currentBlock) {
 		for (let block of this.blocks) {
-			if (block == currentBlock) {
-			//console.log("!");
+			if (block != currentBlock) {
+				if (block.isCollide(currentBlock)) {
+					return block;
+				}
 			}
 		}
+		return false;
 	}
 
 }

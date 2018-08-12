@@ -9,9 +9,19 @@ class Block {
 	update (time, delta) {
 		this.block.y += 2;
 		let collideBlock = this.blocksPool.getCollideObject(this);
-		if (this.block.y > 344) { 
-			this.block.y = 344;
+		if (collideBlock) {
+			this.block.y = collideBlock.block.y - 32;
+		} else {
+			if (this.block.y > 344) { 
+				this.block.y = 344;
+			}
 		}
+	}
+
+	isCollide(otherBlock) {
+		let a = this.block;
+		let b = otherBlock.block;
+		return a.x == b.x && a.y > b.y && a.y < b.y + 32;
 	}
 
 }
