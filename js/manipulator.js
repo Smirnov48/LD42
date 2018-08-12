@@ -17,12 +17,16 @@ class Manipulator {
 		if (time > this.curTime) {
 			this.curTime = time + 2000 + Math.random() * 5000;
 
-			new Block(this.game, this.manipulator.x, this.manipulator.y + 16);
+			this.needReleaseBlock = true;
 		}
-
 
 		if (this.manipulator.x > 707 || this.manipulator.x < -33) {
 			this.velocity = -this.velocity;
+		}
+
+		if (this.needReleaseBlock && this.manipulator.x % 32 == 0) {
+			new Block(this.game, this.manipulator.x, this.manipulator.y + 16);
+			this.needReleaseBlock = false;
 		}
 	}
 
