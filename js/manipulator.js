@@ -26,7 +26,7 @@ class Manipulator {
 			this.velocity = -this.velocity;
 			if (!this.catchedBlock) {
 				this.catchedBlock = new Block(this.game, this.manipulator.x, this.manipulator.y + 16);
-				this.whereDrop = Math.floor(Math.random() * 18);
+				this.whereDrop = Math.floor(Math.random() * 18) + 1;
 			}
 		}
 

@@ -18,13 +18,14 @@ class Game extends Phaser.Scene {
 		this.walls = new Walls(this);
 
 		this.blockPool = new BlockPool(this);
-		this.player = new Player(this, this.blockPool);
+		//this.player = new Player(this, this.blockPool);
 		this.manipulator = new Manipulator(this, this.blockPool);
 	}
 
 	update(time, delta){
 		this.manipulator.update(time, delta);
 		this.blockPool.update(time, delta);
+		//this.player.update(time, delta);
 	}
 
 }
