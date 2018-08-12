@@ -18,11 +18,11 @@ class Game extends Phaser.Scene {
 		}
 
 		new Player(this);
-		new Manipulator(this);
+		this.manipulator = new Manipulator(this);
 	}
 
-	update(){
-
+	update(time, delta){
+		this.manipulator.update(time, delta);
 	}
 
 }
