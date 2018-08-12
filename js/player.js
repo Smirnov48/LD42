@@ -7,8 +7,6 @@ class Player {
 		this.sprite = game.physics.add.sprite(100, 100 * Math.random(), 'player');
 		this.sprite.setCollideWorldBounds(true);
 
-		this.blockPool.setPlayer(this.sprite);		
-
 		this.keys = this.game.input.keyboard.addKeys('W,A,S,D'); 
 	}
 

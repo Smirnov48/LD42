@@ -32,12 +32,17 @@ class Game extends Phaser.Scene {
 
 
 		this.cameras.main.setBounds(0, 0, 640, 360);
-		this.physics.world.setBounds(-300, 0, 1240, 360);
+		this.physics.world.setBounds(0, 0, 640, 360);
 
 		this.walls = new Walls(this);
 
 		this.blockPool = new BlockPool(this);
 		this.player = new Player(this, this.blockPool);
+
+		this.group = this.physics.add.staticGroup();
+		this.physics.add.collider(this.player.sprite, this.group);
+
+		this.blockPool.addGroup(this.group);
 		this.manipulator = new Manipulator(this, this.blockPool);
 	}
 

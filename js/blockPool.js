@@ -3,12 +3,10 @@ class BlockPool {
 	constructor(game) {
 		this.game = game;
 		this.blocks = new Array();
-		this.group = game.physics.add.staticGroup();
 	}
 
 	createBlock (x, y) {
 		let block = new Block(this.game, x, y, this);
-		this.group.add(block.block);
 		this.blocks.push(block);
 	}
 
@@ -21,10 +19,6 @@ class BlockPool {
 	add(block) {
 		block.setPool(this);
 		this.blocks.push(block);
-	}
-
-	setPlayer(player) {
-		this.game.physics.add.collider(player, this.group);
 	}
 
 	getCollideObject (currentBlock) {
