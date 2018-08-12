@@ -17,9 +17,8 @@ class Game extends Phaser.Scene {
 
 		this.walls = new Walls(this);
 
-		this.player = new Player(this);
-
 		this.blockPool = new BlockPool(this);
+		this.player = new Player(this, this.blockPool);
 		this.manipulator = new Manipulator(this, this.blockPool);
 	}
 

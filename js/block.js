@@ -1,14 +1,14 @@
 class Block {
 
-	constructor(game, x, y, blocksPool) {
-		this.blocksPool = blocksPool;
+	constructor(game, x, y, blockPool) {
+		this.blockPool = blockPool;
 		this.game = game;
 		this.block = game.add.image(x, y, 'block');
 	}
 
 	update (time, delta) {
 		this.block.y += 2;
-		let collideBlock = this.blocksPool.getCollideObject(this);
+		let collideBlock = this.blockPool.getCollideObject(this);
 		if (collideBlock) {
 			this.block.y = collideBlock.block.y - 32;
 		} else {
@@ -23,8 +23,8 @@ class Block {
 		this.block.y = y;
 	}
 
-	setPool(blocksPool) {
-		this.blocksPool = blocksPool;
+	setPool(blockPool) {
+		this.blockPool = blockPool;
 	} 
 
 	isCollide(otherBlock) {
