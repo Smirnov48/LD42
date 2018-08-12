@@ -22,8 +22,8 @@ class Game extends Phaser.Scene {
 		}
 		this.physics.add.collider(group);
 
-		var player = this.physics.add.image(100, 100, 'player').setCollideWorldBounds(true);
-		this.physics.add.collider(player, group);
+		var player = new Player(this);
+//		this.physics.add.collider(player, group);
 	}
 
 }
