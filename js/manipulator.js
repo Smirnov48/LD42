@@ -3,29 +3,26 @@ class Manipulator {
 	constructor(game) {
 		this.game = game;
 
-		this.manipulator = game.physics.add.image(32, 0, 'manipulator').setCollideWorldBounds(true);
+		this.manipulator = game.add.image(32, 0, 'manipulator');
 		this.manipulator.setOrigin(0.5, 0);
-		this.manipulator.body.allowGravity = false;
 
 		this.curTime = 2000 + Math.random() * 5000;
 
-		this.velocity = 140;
+		this.velocity = 4;
 	}
 
 	update (time, delta) {
-		this.manipulator.setVelocityX(this.velocity);
+		this.manipulator.x += this.velocity;
 
 		if (time > this.curTime) {
 			this.curTime = time + 2000 + Math.random() * 5000;
 
 			let block = new Block(this.game, this.manipulator.x, this.manipulator.y + 16);
-			block.setVelocityX(this.velocity);
 		}
 
 
-		if (this.manipulator.x > 607 || this.manipulator.x < 33) {
+		if (this.manipulator.x > 707 || this.manipulator.x < -33) {
 			this.velocity = -this.velocity;
-			this.manipulator.setVelocityX(this.velocity);
 		}
 	}
 
