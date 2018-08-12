@@ -1,10 +1,11 @@
 class Block {
 
-	constructor(game) {
-		game.physics.add.image(100, 100, 'block').setCollideWorldBounds(true);
+	constructor(game, x, y) {
+		this.block = game.physics.add.image(x, y, 'block').setCollideWorldBounds(true);
 	}
 
-//	create (game) {
-//	}
+	setVelocityX (velocityX) {
+		this.block.setVelocityX(velocityX);
+	}
 
 }

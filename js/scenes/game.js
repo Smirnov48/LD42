@@ -13,9 +13,6 @@ class Game extends Phaser.Scene {
 	create () {
 		this.cameras.main.setBounds(0, -1000, 640, 1360);
 		this.physics.world.setBounds(0, -1000, 640, 1360);
-		for (var i = 0; i < 50; i++) {
-			new Block(this);
-		}
 
 		new Player(this);
 		this.manipulator = new Manipulator(this);

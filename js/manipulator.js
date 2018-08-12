@@ -7,7 +7,7 @@ class Manipulator {
 		this.manipulator.setOrigin(0.5, 0);
 		this.manipulator.body.allowGravity = false;
 
-		this.curTime = 5000;
+		this.curTime = 2000 + Math.random() * 5000;
 
 		this.velocity = 140;
 	}
@@ -16,10 +16,10 @@ class Manipulator {
 		this.manipulator.setVelocityX(this.velocity);
 
 		if (time > this.curTime) {
-			this.curTime = time + 5000 + Math.random() * 5000;
+			this.curTime = time + 2000 + Math.random() * 5000;
 
-			new Block(this.game);
-			//console.log(this.manipulator.x);
+			let block = new Block(this.game, this.manipulator.x, this.manipulator.y + 16);
+			block.setVelocityX(this.velocity);
 		}
 
 
