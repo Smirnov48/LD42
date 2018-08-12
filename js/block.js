@@ -1,6 +1,6 @@
 class Block {
 
-	constructor(game, x, y, blockPool, player) {
+	constructor(game, x, y, blockPool) {
 		this.blockPool = blockPool;
 		this.game = game;
 		this.block = game.physics.add.staticImage(x, y, 'block', Math.floor(Math.random() * 5) );

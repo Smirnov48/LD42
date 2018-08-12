@@ -7,7 +7,7 @@ class BlockPool {
 	}
 
 	createBlock (x, y) {
-		let block = new Block(this.game, x, y, this, this.player);
+		let block = new Block(this.game, x, y, this);
 		this.group.add(block.block);
 		this.blocks.push(block);
 	}
@@ -24,9 +24,7 @@ class BlockPool {
 	}
 
 	setPlayer(player) {
-		this.game.physics.add.collider(player, this.group, function (){
-			console.log(1);
-		});
+		this.game.physics.add.collider(player, this.group);
 	}
 
 	getCollideObject (currentBlock) {
