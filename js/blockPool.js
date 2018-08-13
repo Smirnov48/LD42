@@ -19,6 +19,9 @@ class BlockPool {
 	add(block) {
 		block.setPool(this);
 		this.blocks.push(block);
+		if (this.group) {
+			this.group.add(block.block);
+		}
 	}
 
 	addGroup(group) {

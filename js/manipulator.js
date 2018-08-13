@@ -42,7 +42,6 @@ class Manipulator {
 		) {
 			this.catchedBlock.setPosition(this.manipulator.x - this.manipulator.x % 32, this.manipulator.y + 32);
 			this.blockPool.add(this.catchedBlock);
-			this.blockPool.group.add(this.catchedBlock.block);
 			this.catchedBlock = false;
 			this.whereDrop = null
 		}

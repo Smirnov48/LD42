@@ -39,8 +39,8 @@ class Game extends Phaser.Scene {
 
 		this.group = this.physics.add.staticGroup();
 		this.physics.add.collider(this.player.sprite, this.group);
-
 		this.blockPool.addGroup(this.group);
+		
 		this.manipulator = new Manipulator(this, this.blockPool);
 		this.manipulator2 = new Manipulator(this, this.blockPool);
 		this.manipulator3 = new Manipulator(this, this.blockPool);
