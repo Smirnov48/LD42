@@ -14,6 +14,35 @@ class BlockPool {
 		for (let block of this.blocks) {
 			block.update(time, delta, this);
 		}
+		this.checkFullLine();
+	}
+
+	//getBlock 
+
+	checkFullLine() {
+		for (let i = 1; i <= 10; i++) {
+			let pY = 376 - 32 * i;
+
+			for (let j = 1; j <= 19; j++) {
+				let pX = 32 * j;
+
+				let hasBlockAtPoint = false;
+				let block = null;
+				for (let k = 0; k < this.blocks.length; k++) {
+					block = this.blocks[k].block;
+
+					if (Phaser.Geom.Rectangle.ContainsPoint(block.getBounds(), new Phaser.Geom.Point(pX, pY))){
+						hasBlockAtPoint = true;
+						break;
+					}
+				}
+
+				if (!hasBlockAtPoint) {
+					break;
+				}
+				block.setTint(0x44ff44);		
+			}
+		}
 	}
 
 	add(block) {
