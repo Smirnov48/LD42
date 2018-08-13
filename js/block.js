@@ -12,9 +12,11 @@ class Block {
 		let collideBlock = this.blockPool.getCollideObject(this);
 		if (collideBlock) {
 			this.block.y = collideBlock.block.y - 32;
+			this.atRest = true;
 		} else {
 			if (this.block.y > 344) { 
 				this.block.y = 344;
+				this.atRest = true;
 			}
 		}
 		this.block.refreshBody();
