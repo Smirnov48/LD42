@@ -23,9 +23,9 @@ class Menu extends Phaser.Scene {
 		this.blockPool.addGroup(this.group);
 		this.manipulator = new Manipulator(this, this.blockPool);
 
-		this.add.text(80, 110, 'Blocker', { font: '96px Arial', fill: '#FF00FF' }).depth = 200;;	
+		this.add.text(60, 110, 'Stack Rush!', { font: '96px Arial', fill: '#FF00FF' }).depth = 200;;	
 
-		let text = this.add.text(160, 230, 'press space to start', { font: '32px Arial', fill: '#FF00FF' }).setAlpha(0.1);
+		let text = this.add.text(170, 230, 'press space to start', { font: '32px Arial', fill: '#FF00FF' }).setAlpha(0.1);
 		this.tweens.add({
 			targets: text,
 			alpha: 1,
