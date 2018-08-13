@@ -20,11 +20,9 @@ class Manipulator {
 		if (this.manipulator.x > 707 || this.manipulator.x < -33) {
 			this.velocity = -this.velocity;
 			
-			//let block = new Block(this.game, this.manipulator.x, this.manipulator.y + 16);
-			//this.blockPool.group.add(block.block);
 			if (!this.catchedBlock) {
 				this.catchedBlock = new Block(this.game, this.manipulator.x, this.manipulator.y + 16);
-				this.whereDrop = Math.floor(Math.random() * 18) + 1;
+				this.whereDrop = Math.floor(Math.random() * 19) + 1;
 			}
 		}
 		if (

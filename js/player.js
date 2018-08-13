@@ -11,8 +11,17 @@ class Player {
 	}
 
 	update(time, delta){
+		if (this.sprite.body.touching.up) {
+			this.died = true;
+			this.sprite.setVelocityX(0);
+			//this.sprite.stop();
+		}
+		if (this.died){
+			this.sprite.setScale(1.2, 0.1);
+			return;
+		}
 
-		if (this.keys.W.isDown && this.sprite.y >= 326) {
+		if (this.keys.W.isDown && (this.sprite.body.touching.down || this.sprite.y >= 326)) {
 			this.sprite.setVelocityY(-210);
 		}
 		if (this.keys.S.isDown) {
