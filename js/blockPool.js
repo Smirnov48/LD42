@@ -14,14 +14,6 @@ class BlockPool {
 		for (let block of this.blocks) {
 			block.update(time, delta, this);
 		}
-
-		let lines = this.getFullLines();
-		for (let line of lines) {
-			for (let block of line) {
-				this.remove(block);
-				block.destroy();
-			}
-		}
 	}
 
 	remove(block) {

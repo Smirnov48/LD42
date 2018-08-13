@@ -43,6 +43,15 @@ class Menu extends Phaser.Scene {
 	update(time, delta){
 		this.manipulator.update(time, delta);
 		this.blockPool.update(time, delta);
+
+		let lines = this.blockPool.getFullLines();
+		for (let line of lines) {
+			for (let block of line) {
+				this.blockPool.remove(block);
+				block.destroy();
+			}
+		}
+
 	}
 
 }
