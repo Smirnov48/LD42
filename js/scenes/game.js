@@ -21,8 +21,6 @@ class Game extends Phaser.Scene {
 			repeat: -1
 		});
 
-
-
 		this.anims.create({
 			key: 'idle',
 			frames: this.anims.generateFrameNumbers('playerIdle', { start:0, end: 1}),
@@ -44,12 +42,20 @@ class Game extends Phaser.Scene {
 
 		this.blockPool.addGroup(this.group);
 		this.manipulator = new Manipulator(this, this.blockPool);
+
+		this.player.sprite.on('died', this.onDied, this);
 	}
 
 	update(time, delta){
-		this.manipulator.update(time, delta);
+		if (!this.player.died) {
+			this.manipulator.update(time, delta);
+		}
 		this.blockPool.update(time, delta);
 		this.player.update(time, delta);
+	}
+
+	onDied() {
+		this.add.text(62, 130, 'Game Over', { font: '96px Arial', fill: '#FF00FF' });	
 	}
 
 }
