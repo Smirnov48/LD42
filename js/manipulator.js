@@ -27,6 +27,7 @@ class Manipulator {
 
 		if (this.manipulator.x > 707 || this.manipulator.x < -33) {
 			this.direction = -this.direction;
+			this.manipulator.x += this.direction * this.velocity;
 			this.velocity = 5 * Math.random() + 1;
 			
 			if (!this.catchedBlock) {
