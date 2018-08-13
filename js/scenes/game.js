@@ -40,7 +40,7 @@ class Game extends Phaser.Scene {
 		this.group = this.physics.add.staticGroup();
 		this.physics.add.collider(this.player.sprite, this.group);
 		this.blockPool.addGroup(this.group);
-		
+
 		this.manipulator = new Manipulator(this, this.blockPool);
 		this.manipulator2 = new Manipulator(this, this.blockPool);
 		this.manipulator3 = new Manipulator(this, this.blockPool);
@@ -70,6 +70,19 @@ class Game extends Phaser.Scene {
 		}
 		this.blockPool.update(time, delta);
 		this.player.update(time, delta);
+
+		let lines = this.blockPool.getFullLines();
+		for (let line of lines) {
+			this.cameras.main.shake(200);
+			for (let block of line) {
+				let deadBlock = this.physics.add.image(block.block.x, block.block.y, 'block', block.numberBlock).setScale(1.2,1.2);
+				deadBlock.setVelocityX(Math.random() * 120 - 60);
+				deadBlock.setVelocityY(- Math.random() * 120 - 100);
+
+				this.blockPool.remove(block);
+				block.destroy();
+			}
+		}
 	}
 
 	onDied() {
