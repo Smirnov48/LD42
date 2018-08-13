@@ -4,11 +4,12 @@ class Manipulator {
 		this.blockPool = blockPool;
 		this.game = game;
 
-		this.manipulator = game.add.image(32, 0, 'manipulator');
+		this.manipulator = game.add.image(-32, 0, 'manipulator');
 		this.manipulator.setOrigin(0.5, 0);
 		this.manipulator.depth = 200;
 
-		this.velocity = 4;
+		//MAX SPEED 31
+		this.velocity = 31;//Math.floor(5 * Math.random() + 1);
 
 		this.catchedBlock = null;
 		this.whereDrop = null;
@@ -25,12 +26,13 @@ class Manipulator {
 				this.whereDrop = Math.floor(Math.random() * 19) + 1;
 			}
 		}
+
 		if (
 			this.catchedBlock && 
-			this.manipulator.x % 32 == 0 && 
+			this.manipulator.x % 32 < Math.abs(this.velocity) && 
 			Math.floor(this.manipulator.x / 32) == this.whereDrop
 		) {
-			this.catchedBlock.setPosition(this.manipulator.x, this.manipulator.y + 32);
+			this.catchedBlock.setPosition(this.manipulator.x - this.manipulator.x % 32, this.manipulator.y + 32);
 			this.blockPool.add(this.catchedBlock);
 			this.blockPool.group.add(this.catchedBlock.block);
 			this.catchedBlock = false;
