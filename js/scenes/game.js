@@ -118,6 +118,15 @@ class Game extends Phaser.Scene {
 	}
 
 	onDied() {
+		let bestScore = localStorage.getItem("bestScore");
+		if (bestScore < this.score.score) {
+			bestScore = this.score.score;
+			this.add.bitmapText(225, 25, 'nokia', 'New record!').setTint(0xFF2020);;
+		}
+		localStorage.setItem('bestScore', bestScore);
+
+		this.add.bitmapText(165, 55, 'nokia', 'Your best score: ' + bestScore).setTint(0xFF2020);;
+		this.add.bitmapText(205, 90, 'nokia', 'Your score: ' + this.score.score).setTint(0xFF2020);;
 		this.add.text(66, 130, 'Game Over', { font: '96px Arial', fill: '#FF00FF' });
 		let text = this.add.text(160, 230, 'press space to restart', { font: '32px Arial', fill: '#FF00FF' }).setAlpha(0.1);
 		this.tweens.add({
