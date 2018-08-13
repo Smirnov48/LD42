@@ -37,4 +37,7 @@ class Block {
 		return a.x == b.x && a.y > b.y && a.y < b.y + 32;
 	}
 
+	destroy() {
+		this.block.destroy();
+	}
 }

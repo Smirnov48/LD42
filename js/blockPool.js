@@ -18,8 +18,16 @@ class BlockPool {
 		let lines = this.getFullLines();
 		for (let line of lines) {
 			for (let block of line) {
+				this.remove(block);
 				block.destroy();
 			}
+		}
+	}
+
+	remove(block) {
+		const index = this.blocks.indexOf(block);
+		if (index !== -1) {
+			this.blocks.splice(index, 1);
 		}
 	}
 
