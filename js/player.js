@@ -14,7 +14,8 @@ class Player {
 		if (this.sprite.body.touching.up) {
 			this.died = true;
 			this.sprite.setVelocityX(0);
-			this.sprite.emit('died');
+			this.game.events.emit('died');
+			this.sprite.anims.pause();
 		}
 		if (this.died){
 			this.sprite.setScale(1.2, 0.1);

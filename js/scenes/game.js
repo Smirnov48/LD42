@@ -43,7 +43,7 @@ class Game extends Phaser.Scene {
 		this.blockPool.addGroup(this.group);
 		this.manipulator = new Manipulator(this, this.blockPool);
 
-		this.player.sprite.on('died', this.onDied, this);
+		 this.events.on('died', this.onDied, this);
 	}
 
 	update(time, delta){
