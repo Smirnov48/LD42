@@ -10,6 +10,7 @@ class Game extends Phaser.Scene {
 		this.load.spritesheet('playerIdle', 'assets/playerIdle.png',  { frameWidth: 32, frameHeight: 64});
 		this.load.image('manipulator', 'assets/manipulator.png');
 		this.load.image('wall', 'assets/wall.png');
+		this.load.bitmapFont('nokia', 'assets/nokia.png', 'assets/nokia.xml');
 	}
 
 	create () {
@@ -53,6 +54,8 @@ class Game extends Phaser.Scene {
 		this.manipulator0 = new Manipulator(this, this.blockPool);
 
 		this.events.on('died', this.onDied, this);
+
+		this.score = new Score(this);
 	}
 
 	update(time, delta){
