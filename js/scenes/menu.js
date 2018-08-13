@@ -40,6 +40,8 @@ class Menu extends Phaser.Scene {
 		});
 		text.depth = 200;
 
+		this.add.text(210, 280, 'Conrols W,A,S,D', { font: '24px Arial', fill: '#FF00FF' });
+
 		this.input.keyboard.on('keydown_SPACE', function () {
 			this.scene.start('Game');
 		}, this);
