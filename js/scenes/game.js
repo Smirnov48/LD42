@@ -76,6 +76,7 @@ class Game extends Phaser.Scene {
 
 		let lines = this.blockPool.getFullLines();
 		for (let line of lines) {
+			this.events.emit('addScore', 100);
 			this.cameras.main.shake(200);
 			for (let block of line) {
 				let deadBlock = this.physics.add.image(block.block.x, block.block.y, 'block', block.numberBlock).setScale(1.2,1.2);
