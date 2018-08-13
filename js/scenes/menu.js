@@ -10,9 +10,14 @@ class Menu extends Phaser.Scene {
 		this.load.spritesheet('playerIdle', 'assets/playerIdle.png',  { frameWidth: 32, frameHeight: 64});
 		this.load.image('manipulator', 'assets/manipulator.png');
 		this.load.image('wall', 'assets/wall.png');
+		this.load.audio('music', ['assets/music.mp3', 'assets/music.ogg']);
 	}
 
 	create () {
+		this.music = this.sound.add('music');
+		this.music.volume = 0.3;
+		this.music.play();
+
 		this.cameras.main.setBounds(0, 0, 640, 360);
 		this.physics.world.setBounds(0, 0, 640, 360);
 

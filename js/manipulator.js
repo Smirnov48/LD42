@@ -1,6 +1,6 @@
 class Manipulator {
 
-	constructor(game, blockPool) {
+	constructor(game, blockPool, velocity) {
 		this.blockPool = blockPool;
 		this.game = game;
 
@@ -16,7 +16,7 @@ class Manipulator {
 		this.manipulator.depth = 200;
 
 		//MAX SPEED 31
-		this.velocity = 3 * Math.random() + 2;
+		this.velocity = velocity;// 3 * Math.random() + 4;
 
 		this.catchedBlock = null;
 		this.whereDrop = null;
@@ -28,7 +28,7 @@ class Manipulator {
 		if (this.manipulator.x > 707 || this.manipulator.x < -33) {
 			this.direction = -this.direction;
 			this.manipulator.x += this.direction * this.velocity;
-			this.velocity = 5 * Math.random() + 2;
+			//this.velocity = 5 * Math.random() + 4;
 			
 			if (!this.catchedBlock) {
 				this.game.events.emit('addScore', 1);

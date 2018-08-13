@@ -15,7 +15,6 @@ class Game extends Phaser.Scene {
 	}
 
 	create () {
-
 		this.anims.create({
 			key: 'run',
 			frames: this.anims.generateFrameNumbers('player', { start:0, end: 5}),
@@ -43,7 +42,8 @@ class Game extends Phaser.Scene {
 		this.physics.add.collider(this.player.sprite, this.group);
 		this.blockPool.addGroup(this.group);
 
-		this.manipulator = new Manipulator(this, this.blockPool);
+		this.manipulators = new Array();
+		this.manipulators.push(new Manipulator(this, this.blockPool, 4));
 
 		this.events.on('died', this.onDied, this);
 
@@ -51,11 +51,53 @@ class Game extends Phaser.Scene {
 		this.rightSwitch = new Switch(this, 640 - 8, 360 - 32, true);
 
 		this.score = new Score(this);
+
+		this.sc5 =  false;
+		this.sc15 =  false;
+		this.sc30 =  false;
+		this.sc50 =  false;
+		this.lastscore = 100;
+
+		let text = this.add.text(40, 120, 'Survive as logn as possible', { font: '48px Arial', fill: '#FF00FF' });
+		this.tweens.add({
+		    targets: text,
+		    alpha: 0,
+		    duration: 5000,
+		    repeat: 0
+		});
 	}
 
 	update(time, delta){
+		if (this.score.score > 5 && !this.sc5) {
+			this.sc5 = true;
+			this.manipulators.push(new Manipulator(this, this.blockPool, 5));
+		}
+
+		if (this.score.score > 15 && !this.sc15) {
+			this.sc15 = true;
+			this.manipulators.push(new Manipulator(this, this.blockPool, 6));
+		}
+		if (this.score.score > 30 && !this.sc30) {
+			this.sc30 = true;
+			this.manipulators.push(new Manipulator(this, this.blockPool, 7));
+		}
+
+		if (this.score.score > 50 && !this.sc50) {
+			this.sc50 = true;
+			this.manipulators.push(new Manipulator(this, this.blockPool, 2));
+			this.manipulators.push(new Manipulator(this, this.blockPool, 3));
+		}
+		
+		if (this.score.score - this.lastscore > 100) {
+			this.lastscore = this.score.score;
+
+			this.manipulators.push(new Manipulator(this, this.blockPool, Math.random() * 15));
+		}
+
 		if (!this.player.died) {
-			this.manipulator.update(time, delta);
+			for (let manipulator of this.manipulators) {
+				manipulator.update(time, delta);
+			}
 		}
 		this.blockPool.update(time, delta);
 		this.player.update(time, delta);
