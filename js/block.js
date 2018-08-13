@@ -7,7 +7,8 @@ class Block {
 	}
 
 	update (time, delta) {
-		this.block.y += 2;
+		//max speed 31
+		this.block.y += 4;
 		let collideBlock = this.blockPool.getCollideObject(this);
 		if (collideBlock) {
 			this.block.y = collideBlock.block.y - 32;
