@@ -73,7 +73,18 @@ class Game extends Phaser.Scene {
 	}
 
 	onDied() {
-		this.add.text(62, 130, 'Game Over', { font: '96px Arial', fill: '#FF00FF' });	
+		this.add.text(66, 130, 'Game Over', { font: '96px Arial', fill: '#FF00FF' });
+		let text = this.add.text(160, 230, 'press space to restart', { font: '32px Arial', fill: '#FF00FF' }).setAlpha(0.1);
+		this.tweens.add({
+		    targets: text,
+		    alpha: 1,
+		    duration: 500,
+		    yoyo: true,
+		    repeat: -1
+		});
+		this.input.keyboard.on('keydown_SPACE', function () {
+			this.scene.restart();
+		}, this);
 	}
 
 }
