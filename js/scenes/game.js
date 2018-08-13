@@ -11,6 +11,7 @@ class Game extends Phaser.Scene {
 		this.load.image('manipulator', 'assets/manipulator.png');
 		this.load.image('wall', 'assets/wall.png');
 		this.load.bitmapFont('nokia', 'assets/nokia.png', 'assets/nokia.xml');
+		this.load.spritesheet('switch', 'assets/switch.png', { frameWidth: 16, frameHeight: 32});		
 	}
 
 	create () {
@@ -43,17 +44,11 @@ class Game extends Phaser.Scene {
 		this.blockPool.addGroup(this.group);
 
 		this.manipulator = new Manipulator(this, this.blockPool);
-		this.manipulator2 = new Manipulator(this, this.blockPool);
-		this.manipulator3 = new Manipulator(this, this.blockPool);
-		this.manipulator4 = new Manipulator(this, this.blockPool);
-		this.manipulator5 = new Manipulator(this, this.blockPool);
-		this.manipulator6 = new Manipulator(this, this.blockPool);
-		this.manipulator7 = new Manipulator(this, this.blockPool);
-		this.manipulator8 = new Manipulator(this, this.blockPool);
-		this.manipulator9 = new Manipulator(this, this.blockPool);
-		this.manipulator0 = new Manipulator(this, this.blockPool);
 
 		this.events.on('died', this.onDied, this);
+
+		this.leftSwitch = new Switch(this, 8, 360 - 32);
+		this.rightSwitch = new Switch(this, 640 - 8, 360 - 32, true);
 
 		this.score = new Score(this);
 	}
@@ -61,15 +56,6 @@ class Game extends Phaser.Scene {
 	update(time, delta){
 		if (!this.player.died) {
 			this.manipulator.update(time, delta);
-			this.manipulator2.update(time, delta);
-			this.manipulator3.update(time, delta);
-			this.manipulator4.update(time, delta);
-			this.manipulator5.update(time, delta);
-			this.manipulator6.update(time, delta);
-			this.manipulator7.update(time, delta);
-			this.manipulator8.update(time, delta);
-			this.manipulator9.update(time, delta);
-			this.manipulator0.update(time, delta);
 		}
 		this.blockPool.update(time, delta);
 		this.player.update(time, delta);
