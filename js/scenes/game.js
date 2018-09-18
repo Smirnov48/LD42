@@ -6,7 +6,7 @@ class Game extends Phaser.Scene {
 
 	preload() {
 		this.load.spritesheet('block', 'assets/block.png', { frameWidth: 32, frameHeight: 32});
-		this.load.spritesheet('player', 'assets/player.png',  { frameWidth: 32, frameHeight: 65});
+		this.load.spritesheet('player', 'assets/player.png',  { frameWidth: 32, frameHeight: 64});
 		this.load.spritesheet('playerIdle', 'assets/playerIdle.png',  { frameWidth: 32, frameHeight: 64});
 		this.load.image('manipulator', 'assets/manipulator.png');
 		this.load.image('wall', 'assets/wall.png');
@@ -17,7 +17,7 @@ class Game extends Phaser.Scene {
 	create () {
 		this.anims.create({
 			key: 'run',
-			frames: this.anims.generateFrameNumbers('player', { start:0, end: 5}),
+			frames: this.anims.generateFrameNumbers('player', { start:0, end: 7}),
 			frameRate: 6,
 			repeat: -1
 		});
